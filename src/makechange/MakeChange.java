@@ -11,9 +11,12 @@ public class MakeChange {
 		double price = kb.nextDouble();
 		System.out.println("How much money are you entering?");
 		double tend = kb.nextDouble();
-		double quarter = .25, dime = .10, pennie = .01;
 		
-		
+		double change = tend - price;
+		double quarter = .25, dime = .10, penny = .01;
+		int dollar = 1, dollar5 = 5, dollar10 = 10, dollar20 = 20;
+		float dimef = 10;
+	
 		
 		if (price > tend) {
 			System.out.println("You have not provided the right amount of money.");
@@ -23,19 +26,40 @@ public class MakeChange {
 			System.out.println("You have provided the the exact amount of money. Have a good day!");
 		}
 		
-		double change = tend - price;
 		
-		// need to round the double to only showing the first 2 decimal places... then tackle the output
-		
-		if (price < tend ) {
+		// for loop to keep printing out the quarter? if in the for loop .75 prints quarter 3 *'s?
+		while (tend > price) {
+			
+			if (change % dollar == 0) {
+				int changeTo = (int) change;
+				System.out.print("You get " + changeTo + " dollars");
 				
-		}
-		
+			}
+			 if (change % quarter == 0) {
+				int changeTo = (int)  (change * 4);
+				System.out.print("You get " + changeTo + " quarters");
+				break;
+			 	}
+//			if (change % dime == 10) {
+//				int changeTo = (int) (change * .10);
+//				System.out.print("You get " + change + " dimes");
+//				break;
+			 else {
+				 System.out.println("Loop fail");
+				 break;
+			 	}
+			}
 		
 		kb.close();
 	}
-
+		
+	
+	public static void tenderPrice() {
+		}
+			
+		
 }
+		
 
 //
 //User Story #4
