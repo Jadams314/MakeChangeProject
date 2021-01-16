@@ -11,12 +11,11 @@ public class MakeChange {
 		double price = kb.nextDouble();
 		System.out.println("How much money are you entering?");
 		double tend = kb.nextDouble();
+		kb.close();
 		
 		double change = tend - price;
-		double quarter = .25, dime = .10, penny = .01;
+		double quarter = .25, dime = .10, penny = .01, nickel = .05;
 		int dollar = 1, dollar5 = 5, dollar10 = 10, dollar20 = 20;
-		float dimef = 10;
-	
 		
 		if (price > tend) {
 			System.out.println("You have not provided the right amount of money.");
@@ -29,37 +28,49 @@ public class MakeChange {
 		
 		// for loop to keep printing out the quarter? if in the for loop .75 prints quarter 3 *'s?
 		while (tend > price) {
-			
-			if (change % dollar == 0) {
-				int changeTo = (int) change;
-				System.out.print("You get " + changeTo + " dollars");
+			int remainder1;
+			if (change % dollar != 1) {
+				remainder1 = (int) change;
+				System.out.print("You get " + remainder1 + " dollars ");
 				
+				int remainder2 = (int) ((change - remainder1) /.25);
+				System.out.print("and " + remainder2 + " quarters");
+			
+				remainder1 = (int) ( (change - remainder2) / .10 );
+				System.out.print(" and " + remainder1 + " dimes");
+				
+				
+				break;
 			}
-			 if (change % quarter == 0) {
-				int changeTo = (int)  (change * 4);
-				System.out.print("You get " + changeTo + " quarters");
+			else if (change % quarter != 0) {
+				remainder1 = (int)  (change * 4);
+				System.out.print("You get " + remainder1 + " quarters");
 				break;
 			 	}
-//			if (change % dime == 10) {
-//				int changeTo = (int) (change * .10);
-//				System.out.print("You get " + change + " dimes");
-//				break;
+			 else if (change % dime == 0.1) {
+				remainder1 = (int) (change * 10);
+				System.out.print("You get " + remainder1 + " dimes");
+				break;
+			}
+			 else if( change % nickel == 0.05) {
+				remainder1 = (int) (change * 20);
+				System.out.print("You get " + remainder1 + " nickles");
+				break;
+			}
+			 else if (change % penny == 0.01) {
+				remainder1 = (int) (change * 10);
+				System.out.print("You get " + remainder1 + " pennies");
+				break;
+			}
 			 else {
 				 System.out.println("Loop fail");
 				 break;
 			 	}
 			}
+				
 		
-		kb.close();
-	}
-		
-	
-	public static void tenderPrice() {
-		}
-			
-		
-}
-		
+	}	
+}		
 
 //
 //User Story #4
