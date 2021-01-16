@@ -28,7 +28,7 @@ public class MakeChange {
 		else if (price == tend) {
 			System.out.println("You have provided the the exact amount of money. Have a good day!");
 		}
-//		System.out.println( (double) Math.round(change * 100)/100);
+		System.out.print( "Change due: " + (double) Math.round(change * 100)/100 + "  \n");
 		int changeInt = (int) Math.round(change * 100);
 		while (changeInt > 0){
 			 while	(changeInt >= 2000) {
@@ -65,37 +65,53 @@ public class MakeChange {
 				penny++;
 				}
 			}
-		if (dollar20 >=1) {	
-			System.out.print(dollar20 + " twenty dollar bills ");
-									}
-		 if (dollar10 >=1) {
-			System.out.print(dollar10 + " ten dollar bills ");
+		if (dollar20 > 1) {	
+			System.out.print(dollar20 + " twenty dollar bills, ");
 			}
-		 if (dollar5 >=1) {
-			System.out.print(dollar5 + " five dollar bills ");
+		if (dollar20 == 1) {
+			System.out.print(dollar20 + " twenty dollar bill, ");
 			}
-		 if (dollar1 >=1) {
-			System.out.print(dollar1 + " one dollar bills ");
+		 if (dollar10 > 1) {
+			System.out.print(dollar10 + " ten dollar bills, ");
 			}
-		 if (quarter >=1) {
-			System.out.print(quarter + " quarters ");
+		 if (dollar10 == 1) {
+				System.out.print(dollar10 + " ten dollar bill, ");
+		 	}
+		 if (dollar5 > 1) {
+			System.out.print(dollar5 + " five dollar bills, ");
 			}
-		 if (dime >=1) {
-			System.out.print(dime + " dimes ");
+		 if (dollar5 == 1) {
+				System.out.print(dollar5 + " five dollar bill, ");
+		 	}
+		 if (dollar1 > 1) {
+			System.out.print(dollar1 + " one dollar bills, ");
 			}
-		 if (nickel >=1) {
-			System.out.print(nickel + " nickels ");
+		 if (dollar1 == 1) {
+				System.out.print(dollar1 + " one dollar bill, ");
+		 	}
+		 if (quarter > 1) {
+			System.out.print(quarter + " quarters, ");
 			}
-		if (penny >=1) {
-			System.out.print(penny + "pennies ");
+		 if (quarter == 1) {
+				System.out.print(quarter + " quarter, ");
+		 	}
+		 if (dime > 1) {
+			System.out.print(dime + " dimes, ");
+			}
+		 if (dime ==1) {
+				System.out.print(dime + " dime, ");
+		 	}
+		 if (nickel > 1) {
+			System.out.print(nickel + " nickels, ");
+			}
+		if (nickel ==1) {
+			System.out.print(nickel + " nickel, ");
+			}
+		if (penny > 1) {
+			System.out.print(penny + " pennies ");
+			}
+		if (penny == 1) {
+			System.out.print(penny + " penny ");
 			}
 		}
 	}
-
-
-
-//Amount: .67, Tendered: .50, Result: Error message
-//Amount: .67, Tendered: 1.00, Result: 1 quarter, 1 nickel, 3 pennies.
-//Amount: .59, Tendered: 1.00, Result: 1 quarter, 1 dime, 1 nickel, 1 penny.
-//Amount: 3.96, Tendered: 20.00, Result: 1 ten dollar bill, 1 five dollar bill, 1 one dollar bill, 4 pennies.
-//Amount: any amount less than 20.00, Tendered: anything greater than amount: correct denominations for correct change.
