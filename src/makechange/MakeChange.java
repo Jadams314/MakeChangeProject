@@ -8,7 +8,11 @@ public class MakeChange {
 		MakeChange m = new MakeChange();
 		int[] money = new int[8];
 
+		// makes call to scanner to get user input for change value
 		double changeInt = m.calcChange();
+
+		// call to calcute the price and amount tendered to give amount needed to be returened
+
 		money = m.sortChange(changeInt);
 		m.printChange(money);
 	}
@@ -16,8 +20,10 @@ public class MakeChange {
 	private double calcChange() {
 		Scanner kb = new Scanner(System.in);
 		double price, tend, change;
+
 		System.out.println("What is the price of the item? ");
 		price = kb.nextDouble();
+
 		System.out.println("How much money are you entering?");
 		tend = kb.nextDouble();
 		kb.close();
@@ -38,7 +44,11 @@ public class MakeChange {
 		return changeInt;
 	}
 
-	// Breaking down to determine how much of each bill you have
+	/*
+		Breaking down to determine how much of each bill you have
+		sortChange creates an 8 slot array, and increments the number in each slot based on the value of changeInt. 
+		which is then taken to the printChange method to send prompt to the user
+	 */
 
 	private int[] sortChange(Double changeInt) {
 		int[] money = new int[8];
@@ -82,7 +92,10 @@ public class MakeChange {
 		return money;
 	}
 
-	// printing the change based on how many of each
+	/*
+		Here we assign a string value to each slot of the array. Then we look into the array and see the value for each slot.
+		Ex: Pennny   Money[0] = 2 then there would be 2 pennies.
+	 */ 
 	private void printChange(int[] money) {
 		int penny = money[0];
 		int nickel = money[1];
